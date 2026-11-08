@@ -1,0 +1,60 @@
+configuration=optimized-8T
+threads=8
+iterations=100
+input=inputs/frame2000.png
+input_kind=image
+width=3840
+height=2160
+checksum=398934484
+processing_ms=4092.042
+processing_ms_per_frame=40.920
+configuration=optimized-8T
+threads=8
+iterations=100
+input=inputs/frame2000.png
+input_kind=image
+width=3840
+height=2160
+checksum=398934484
+processing_ms=4123.116
+processing_ms_per_frame=41.231
+configuration=optimized-8T
+threads=8
+iterations=100
+input=inputs/frame2000.png
+input_kind=image
+width=3840
+height=2160
+checksum=398934484
+processing_ms=4133.392
+processing_ms_per_frame=41.334
+configuration=optimized-8T
+threads=8
+iterations=100
+input=inputs/frame2000.png
+input_kind=image
+width=3840
+height=2160
+checksum=398934484
+processing_ms=4136.539
+processing_ms_per_frame=41.365
+configuration=optimized-8T
+threads=8
+iterations=100
+input=inputs/frame2000.png
+input_kind=image
+width=3840
+height=2160
+checksum=398934484
+processing_ms=4104.682
+processing_ms_per_frame=41.047
+
+ Performance counter stats for './sobel_optimized --input inputs/frame2000.png --threads 8 --iterations 100' (5 runs):
+
+    15,787,978,758      task-clock:u                     #    2.968 CPUs utilized               ( +-  0.01% )
+                 0      context-switches:u               #    0.000 /sec                      
+                 0      cpu-migrations:u                 #    0.000 /sec                      
+            23,495      page-faults:u                    #    1.488 K/sec                       ( +-  0.00% )
+
+           5.31853 +- 0.00823 seconds time elapsed  ( +-  0.15% )
+

@@ -1,0 +1,10 @@
+configuration=optimized-8T
+threads=8
+iterations=100
+input=inputs/frame2000.png
+input_kind=image
+width=3840
+height=2160
+checksum=398934484
+processing_ms=4095.252
+processing_ms_per_frame=40.953

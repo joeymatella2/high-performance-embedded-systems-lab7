@@ -1,0 +1,10 @@
+configuration=optimized-4T
+threads=4
+iterations=100
+input=inputs/frame2000.png
+input_kind=image
+width=3840
+height=2160
+checksum=398934484
+processing_ms=3712.074
+processing_ms_per_frame=37.121

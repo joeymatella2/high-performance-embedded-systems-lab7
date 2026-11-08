@@ -1,0 +1,10 @@
+configuration=original
+threads=1
+iterations=100
+input=inputs/frame2000.png
+input_kind=image
+width=3840
+height=2160
+checksum=398934484
+processing_ms=178790.540
+processing_ms_per_frame=1787.905
