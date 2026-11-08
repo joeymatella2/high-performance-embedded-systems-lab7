@@ -1,0 +1,4 @@
+*.o
+sobel_original
+sobel_optimized
+validate
