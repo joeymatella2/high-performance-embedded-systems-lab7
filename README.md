@@ -7,6 +7,32 @@ kernel is built with `-O3 -ftree-vectorize`. All versions use the same `g++`
 and OpenCV installation on the machine where `make` is run. See `Makefile` for
 every exact compile and link command (`make -B -n all` prints them).
 
+## How the files fit together
+
+`Makefile` builds two benchmark programs from the same `benchmark.cpp` main
+function. For `sobel_original`, it compiles that file with `ORIGINAL_BUILD` and
+links `reference.cpp`; for `sobel_optimized`, it links `optimized.cpp` instead.
+`input.h` defines the command-line options, and `input.cpp` parses them and
+loads or resizes the input frame. `image_processing.h` declares the processing
+functions; `common.cpp` checks image buffers and computes the output checksum.
+
+Each benchmark loads one frame, allocates its image buffers, and then calls its
+processing function for the requested number of iterations. `reference.cpp`
+contains the scalar grayscale and Sobel implementation. `optimized.cpp`
+contains the pointer-based implementation used at every optimized thread
+count; it divides rows among workers and synchronizes the grayscale and Sobel
+passes. `benchmark.cpp` times the repeated processing loop and prints the
+configuration, dimensions, checksum, and timing after the loop.
+
+`validate.cpp` is a separate program with its own main function. It runs the
+reference and all four optimized thread counts on the same frame and compares
+their output pixels. This is the automated **correctness check**. `collect.sh`
+records system information, runs validation and a counter-access check,
+warms up each configuration, checks temperature and throttling, and runs the
+11 required `perf stat` commands. Each command uses `-r 5` for five repeated
+**performance measurements**. The script saves those outputs under `results/`;
+it does not use timing as a correctness test.
+
 ## Build and correctness
 
 On the **Raspberry Pi** with OpenCV development files installed:
