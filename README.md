@@ -18,13 +18,15 @@ make all
 ```
 
 Create `results/` first if running validation manually. `validate` reads the
-video frame at zero-based index 60 (or an image), resizes it to 3840x2160, compares all five configurations pixel
-by pixel, and exits nonzero on any mismatch. An image path also works. Use
+video frame selected by `Options.frame` in `input.h` (initially index 60),
+resizes it to 3840x2160, compares all five configurations pixel by pixel,
+and exits nonzero on any mismatch. An image path also works. Use
 `--width W --height H` on both `validate` and every benchmark command only if
 you intentionally choose a different common size. The default is the 4K size
-used in earlier labs. Use `--frame N` on all commands if you select another
-zero-based video frame. The collection script accepts that index as its third
-argument and otherwise uses frame 60.
+used in earlier labs. To select another zero-based video frame for the entire
+experiment, change `Options.frame` in `input.h` and rebuild with
+`make clean && make all`. `collect.sh` does not pass a frame argument, so all
+configurations use the same compiled default.
 
 ## Benchmark commands
 
@@ -51,7 +53,6 @@ on each iteration, as in Lab 6; that overhead is part of the measured design.
 ```bash
 chmod +x collect.sh
 ./collect.sh /path/to/video.mp4 500
-./collect.sh /path/to/video.mp4 500 2000  # example using video frame 2000
 ```
 
 `collect.sh` refuses to run outside a Raspberry Pi. It saves system details,

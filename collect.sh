@@ -1,15 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-if [[ $# -lt 2 || $# -gt 3 ]]; then
-    echo "Usage: $0 INPUT_VIDEO_OR_IMAGE ITERATIONS [FRAME_INDEX]" >&2
+if [[ $# -ne 2 ]]; then
+    echo "Usage: $0 INPUT_VIDEO_OR_IMAGE ITERATIONS" >&2
     exit 1
 fi
 input=$1
 iterations=$2
-frame=${3:-60}
-if [[ ! -f "$input" || ! "$iterations" =~ ^[1-9][0-9]*$ || ! "$frame" =~ ^(0|[1-9][0-9]*)$ ]]; then
-    echo "Input must exist; iterations must be positive and frame index nonnegative." >&2
+if [[ ! -f "$input" || ! "$iterations" =~ ^[1-9][0-9]*$ ]]; then
+    echo "Input must exist and iterations must be a positive integer." >&2
     exit 1
 fi
 if [[ ! -r /proc/device-tree/model ]] || ! grep -q 'Raspberry Pi' /proc/device-tree/model; then
@@ -27,10 +26,9 @@ mkdir -p results
     echo '$ g++ --version'; g++ --version
     echo '$ perf --version'; perf --version
     echo '$ make -B -n all'; make -B -n all
-    echo "selected_video_frame_index=$frame"
 } >results/system.txt 2>&1
 perf list >results/perf_list.txt 2>&1
-./validate --input "$input" --frame "$frame" >results/correctness.txt 2>&1
+./validate --input "$input" >results/correctness.txt 2>&1
 cat /proc/sys/kernel/perf_event_paranoid >results/perf_event_paranoid.txt
 perf stat -e cycles:u,instructions:u -- seq 1 1000000 >/dev/null 2>results/perf_access_test.txt || {
     echo "Counter access test failed; see results/perf_access_test.txt" >&2
@@ -66,8 +64,8 @@ measure_block() {
         echo "Current power/thermal warning before $name; stop and correct it." >&2
         exit 1
     fi
-    "$executable" --input "$input" --frame "$frame" --threads "$threads" --iterations "$iterations" >"results/${name}_warmup.txt" 2>&1
-    local args=(--input "$input" --frame "$frame" --threads "$threads" --iterations "$iterations")
+    "$executable" --input "$input" --threads "$threads" --iterations "$iterations" >"results/${name}_warmup.txt" 2>&1
+    local args=(--input "$input" --threads "$threads" --iterations "$iterations")
     perf stat -r 5 -e cycles:u,instructions:u -- "$executable" "${args[@]}" >"results/${name}_cycles_instructions.txt" 2>&1
     if [[ "$name" == original || "$name" == optimized_1t ]]; then
         perf stat -r 5 -e cache-references:u,cache-misses:u -- "$executable" "${args[@]}" >"results/${name}_cache.txt" 2>&1
