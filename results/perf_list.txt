@@ -1,0 +1,324 @@
+  branch-misses                                      [Hardware event]
+  bus-cycles                                         [Hardware event]
+  cache-misses                                       [Hardware event]
+  cache-references                                   [Hardware event]
+  cpu-cycles OR cycles                               [Hardware event]
+  instructions                                       [Hardware event]
+
+cache:
+  L1-dcache-loads OR armv8_cortex_a72/L1-dcache-loads/
+  L1-dcache-load-misses OR armv8_cortex_a72/L1-dcache-load-misses/
+  L1-dcache-stores OR armv8_cortex_a72/L1-dcache-stores/
+  L1-dcache-store-misses OR armv8_cortex_a72/L1-dcache-store-misses/
+  L1-icache-loads OR armv8_cortex_a72/L1-icache-loads/
+  L1-icache-load-misses OR armv8_cortex_a72/L1-icache-load-misses/
+  dTLB-load-misses OR armv8_cortex_a72/dTLB-load-misses/
+  dTLB-store-misses OR armv8_cortex_a72/dTLB-store-misses/
+  iTLB-load-misses OR armv8_cortex_a72/iTLB-load-misses/
+  branch-loads OR armv8_cortex_a72/branch-loads/
+  branch-load-misses OR armv8_cortex_a72/branch-load-misses/
+  node-loads OR armv8_cortex_a72/node-loads/
+  node-stores OR armv8_cortex_a72/node-stores/
+
+branch:
+  br_immed_spec
+       [Branch speculatively executed,immediate branch. Unit: armv8_cortex_a72]
+  br_indirect_spec
+       [Branch speculatively executed,indirect branch. Unit: armv8_cortex_a72]
+  br_mis_pred
+       [Mispredicted or not predicted branch speculatively executed. Unit:
+        armv8_cortex_a72]
+  br_pred
+       [Predictable branch speculatively executed. Unit: armv8_cortex_a72]
+  br_return_spec
+       [Branch speculatively executed,procedure return. Unit: armv8_cortex_a72]
+
+bus:
+  bus_access
+       [Attributable Bus access. Unit: armv8_cortex_a72]
+  bus_access_normal
+       [Bus access,Normal. Unit: armv8_cortex_a72]
+  bus_access_not_shared
+       [Bus access,not Normal,Cacheable,Shareable. Unit: armv8_cortex_a72]
+  bus_access_periph
+       [Bus access,peripheral. Unit: armv8_cortex_a72]
+  bus_access_rd
+       [Bus access read. Unit: armv8_cortex_a72]
+  bus_access_shared
+       [Bus access,Normal,Cacheable,Shareable. Unit: armv8_cortex_a72]
+  bus_access_wr
+       [Bus access write. Unit: armv8_cortex_a72]
+  bus_cycles
+       [Bus cycle. Unit: armv8_cortex_a72]
+  cpu_cycles
+       [Cycle. Unit: armv8_cortex_a72]
+
+cache:
+  l1d_cache
+       [Level 1 data cache access. Unit: armv8_cortex_a72]
+  l1d_cache_inval
+       [L1D cache invalidate. Unit: armv8_cortex_a72]
+  l1d_cache_rd
+       [L1D cache access,read. Unit: armv8_cortex_a72]
+  l1d_cache_refill
+       [Level 1 data cache refill. Unit: armv8_cortex_a72]
+  l1d_cache_refill_rd
+       [L1D cache refill,read. Unit: armv8_cortex_a72]
+  l1d_cache_refill_wr
+       [L1D cache refill,write. Unit: armv8_cortex_a72]
+  l1d_cache_wb
+       [Attributable Level 1 data cache write-back. Unit: armv8_cortex_a72]
+  l1d_cache_wb_clean
+       [L1D cache Write-Back,cleaning and coherency. Unit: armv8_cortex_a72]
+  l1d_cache_wb_victim
+       [L1D cache Write-Back,victim. Unit: armv8_cortex_a72]
+  l1d_cache_wr
+       [L1D cache access,write. Unit: armv8_cortex_a72]
+  l1d_tlb_refill
+       [Attributable Level 1 data TLB refill. Unit: armv8_cortex_a72]
+  l1d_tlb_refill_rd
+       [L1D tlb refill,read. Unit: armv8_cortex_a72]
+  l1d_tlb_refill_wr
+       [L1D tlb refill,write. Unit: armv8_cortex_a72]
+  l1i_cache
+       [Attributable Level 1 instruction cache access. Unit: armv8_cortex_a72]
+  l1i_cache_refill
+       [Level 1 instruction cache refill. Unit: armv8_cortex_a72]
+  l1i_tlb_refill
+       [Attributable Level 1 instruction TLB refill. Unit: armv8_cortex_a72]
+  l2d_cache
+       [Level 2 data cache access. Unit: armv8_cortex_a72]
+  l2d_cache_inval
+       [L2D cache invalidate. Unit: armv8_cortex_a72]
+  l2d_cache_rd
+       [L2D cache access,read. Unit: armv8_cortex_a72]
+  l2d_cache_refill
+       [Level 2 data refill. Unit: armv8_cortex_a72]
+  l2d_cache_refill_rd
+       [L2D cache refill,read. Unit: armv8_cortex_a72]
+  l2d_cache_refill_wr
+       [L2D cache refill,write. Unit: armv8_cortex_a72]
+  l2d_cache_wb
+       [Attributable Level 2 data cache write-back. Unit: armv8_cortex_a72]
+  l2d_cache_wb_clean
+       [L2D cache Write-Back,cleaning and coherency. Unit: armv8_cortex_a72]
+  l2d_cache_wb_victim
+       [L2D cache Write-Back,victim. Unit: armv8_cortex_a72]
+  l2d_cache_wr
+       [L2D cache access,write. Unit: armv8_cortex_a72]
+
+drm:
+  drm-engine-bin
+       [Utilization in ns. Unit: drm_v3d]
+  drm-engine-cache_clean
+       [Utilization in ns. Unit: drm_v3d]
+  drm-engine-cpu
+       [Utilization in ns. Unit: drm_v3d]
+  drm-engine-csd
+       [Utilization in ns. Unit: drm_v3d]
+  drm-engine-render
+       [Utilization in ns. Unit: drm_v3d]
+  drm-engine-tfu
+       [Utilization in ns. Unit: drm_v3d]
+  drm-resident-memory
+       [Size of resident memory buffers. Unit: drm_v3d]
+  drm-shared-memory
+       [Size of shared memory buffers. Unit: drm_v3d]
+  drm-total-memory
+       [Size of shared and private memory. Unit: drm_v3d]
+
+exception:
+  exc_dabort
+       [Exception taken,Data Abort and SError. Unit: armv8_cortex_a72]
+  exc_fiq
+       [Exception taken,FIQ. Unit: armv8_cortex_a72]
+  exc_hvc
+       [Exception taken,Hypervisor Call. Unit: armv8_cortex_a72]
+  exc_irq
+       [Exception taken,IRQ. Unit: armv8_cortex_a72]
+  exc_pabort
+       [Exception taken,Instruction Abort. Unit: armv8_cortex_a72]
+  exc_smc
+       [Exception taken,Secure Monitor Call. Unit: armv8_cortex_a72]
+  exc_svc
+       [Exception taken,Supervisor Call. Unit: armv8_cortex_a72]
+  exc_taken
+       [Exception taken. Unit: armv8_cortex_a72]
+  exc_trap_dabort
+       [Exception taken,Data Abort or SError not taken locally. Unit:
+        armv8_cortex_a72]
+  exc_trap_fiq
+       [Exception taken,FIQ not taken locally. Unit: armv8_cortex_a72]
+  exc_trap_irq
+       [Exception taken,IRQ not taken locally. Unit: armv8_cortex_a72]
+  exc_trap_other
+       [Exception taken,Other traps not taken locally. Unit: armv8_cortex_a72]
+  exc_trap_pabort
+       [Exception taken,Instruction Abort not taken locally. Unit:
+        armv8_cortex_a72]
+  exc_undef
+       [Exception taken,Other synchronous. Unit: armv8_cortex_a72]
+  memory_error
+       [Local memory error. Unit: armv8_cortex_a72]
+
+hwmon:
+  temp1
+       [Temperature in unit cpu_thermal named temp1. Unit: hwmon_cpu_thermal]
+
+instruction:
+  ase_spec
+       [Operation speculatively executed,Advanced SIMD instruction. Unit:
+        armv8_cortex_a72]
+  cid_write_retired
+       [Instruction architecturally executed,condition code check pass,write
+        to CONTEXTIDR. Unit: armv8_cortex_a72]
+  crypto_spec
+       [Operation speculatively executed,Cryptographic instruction. Unit:
+        armv8_cortex_a72]
+  dmb_spec
+       [Barrier speculatively executed,DMB. Unit: armv8_cortex_a72]
+  dp_spec
+       [Operation speculatively executed,integer data processing. Unit:
+        armv8_cortex_a72]
+  dsb_spec
+       [Barrier speculatively executed,DSB. Unit: armv8_cortex_a72]
+  exc_return
+       [Instruction architecturally executed,condition check pass,exception
+        return. Unit: armv8_cortex_a72]
+  inst_retired
+       [Instruction architecturally executed. Unit: armv8_cortex_a72]
+  inst_spec
+       [Operation speculatively executed. Unit: armv8_cortex_a72]
+  isb_spec
+       [Barrier speculatively executed,ISB. Unit: armv8_cortex_a72]
+  ld_spec
+       [Operation speculatively executed,load. Unit: armv8_cortex_a72]
+  ldrex_spec
+       [Exclusive operation speculatively executed,LDREX or LDX. Unit:
+        armv8_cortex_a72]
+  ldst_spec
+       [Operation speculatively executed,load or store. Unit: armv8_cortex_a72]
+  pc_write_spec
+       [Operation speculatively executed,software change of the PC. Unit:
+        armv8_cortex_a72]
+  rc_ld_spec
+       [Release consistency operation speculatively executed,Load-Acquire.
+        Unit: armv8_cortex_a72]
+  rc_st_spec
+       [Release consistency operation speculatively executed,Store-Release.
+        Unit: armv8_cortex_a72]
+  st_spec
+       [Operation speculatively executed,store. Unit: armv8_cortex_a72]
+  strex_fail_spec
+       [Exclusive operation speculatively executed,STREX or STX fail. Unit:
+        armv8_cortex_a72]
+  strex_pass_spec
+       [Exclusive operation speculatively executed,STREX or STX pass. Unit:
+        armv8_cortex_a72]
+  sw_incr
+       [Instruction architecturally executed,Condition code check pass,
+        software increment. Unit: armv8_cortex_a72]
+  ttbr_write_retired
+       [Instruction architecturally executed,Condition code check pass,write
+        to TTBR. Unit: armv8_cortex_a72]
+  vfp_spec
+       [Operation speculatively executed,floating-point instruction. Unit:
+        armv8_cortex_a72]
+
+memory:
+  mem_access
+       [Data memory access. Unit: armv8_cortex_a72]
+  mem_access_rd
+       [Data memory access,read. Unit: armv8_cortex_a72]
+  mem_access_wr
+       [Data memory access,write. Unit: armv8_cortex_a72]
+  unaligned_ld_spec
+       [Unaligned access,read. Unit: armv8_cortex_a72]
+  unaligned_ldst_spec
+       [Unaligned access. Unit: armv8_cortex_a72]
+  unaligned_st_spec
+       [Unaligned access,write. Unit: armv8_cortex_a72]
+
+software:
+  alignment-faults
+       [Number of kernel handled memory alignment faults. Unit: software]
+  bpf-output
+       [An event used by BPF programs to write to the perf ring buffer. Unit:
+        software]
+  cgroup-switches
+       [Number of context switches to a task in a different cgroup. Unit:
+        software]
+  context-switches
+       [Number of context switches [This event is an alias of cs]. Unit:
+        software]
+  cpu-clock
+       [Per-CPU high-resolution timer based event. Unit: software]
+  cpu-migrations
+       [Number of times a process has migrated to a new CPU [This event is an
+        alias of migrations]. Unit: software]
+  cs
+       [Number of context switches [This event is an alias of
+        context-switches]. Unit: software]
+  dummy
+       [A placeholder event that doesn't count anything. Unit: software]
+  emulation-faults
+       [Number of kernel handled unimplemented instruction faults handled
+        through emulation. Unit: software]
+  faults
+       [Number of page faults [This event is an alias of page-faults]. Unit:
+        software]
+  major-faults
+       [Number of major page faults. Major faults require I/O to handle. Unit:
+        software]
+  migrations
+       [Number of times a process has migrated to a new CPU [This event is an
+        alias of cpu-migrations]. Unit: software]
+  minor-faults
+       [Number of minor page faults. Minor faults don't require I/O to handle.
+        Unit: software]
+  page-faults
+       [Number of page faults [This event is an alias of faults]. Unit:
+        software]
+  task-clock
+       [Per-task high-resolution timer based event. Unit: software]
+
+tool:
+  duration_time
+       [Wall clock interval time in nanoseconds. Unit: tool]
+  has_pmem
+       [1 if persistent memory installed otherwise 0. Unit: tool]
+  num_cores
+       [Number of cores. A core consists of 1 or more thread,with each thread
+        being associated with a logical Linux CPU. Unit: tool]
+  num_cpus
+       [Number of logical Linux CPUs. There may be multiple such CPUs on a
+        core. Unit: tool]
+  num_cpus_online
+       [Number of online logical Linux CPUs. There may be multiple such CPUs
+        on a core. Unit: tool]
+  num_dies
+       [Number of dies. Each die has 1 or more cores. Unit: tool]
+  num_packages
+       [Number of packages. Each package has 1 or more die. Unit: tool]
+  slots
+       [Number of functional units that in parallel can execute parts of an
+        instruction. Unit: tool]
+  smt_on
+       [1 if simultaneous multithreading (aka hyperthreading) is enable
+        otherwise 0. Unit: tool]
+  system_time
+       [System/kernel time in nanoseconds. Unit: tool]
+  user_time
+       [User (non-kernel) time in nanoseconds. Unit: tool]
+  rNNN                                               [Raw event descriptor]
+  armv8_cortex/threshold_count,event=0..0xffff,long,.../modifier[Raw event descriptor]
+       [(see 'man perf-list' or 'man perf-record' on how to encode it)]
+  breakpoint//modifier                               [Raw event descriptor]
+  drm_v3d//modifier                                  [Raw event descriptor]
+  hwmon_cpu_thermal//modifier                        [Raw event descriptor]
+  hwmon_rpi_volt//modifier                           [Raw event descriptor]
+  kprobe/retprobe/modifier                           [Raw event descriptor]
+  software//modifier                                 [Raw event descriptor]
+  tool//modifier                                     [Raw event descriptor]
+  tracepoint//modifier                               [Raw event descriptor]
+  mem:<addr>[/len][:access]                          [Hardware breakpoint]

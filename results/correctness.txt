@@ -1,0 +1,6 @@
+configuration,checksum,max_pixel_difference,differing_pixels,pass
+original,16378599,0,0,yes
+optimized-1T,16378599,0,0,yes
+optimized-2T,16378599,0,0,yes
+optimized-4T,16378599,0,0,yes
+optimized-8T,16378599,0,0,yes

@@ -1,0 +1,4 @@
+before_temp=52.5 C
+before_throttled=0x0
+after_temp=69.1 C
+after_throttled=0x0

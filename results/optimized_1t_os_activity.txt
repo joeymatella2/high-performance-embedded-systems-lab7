@@ -1,0 +1,60 @@
+configuration=optimized-1T
+threads=1
+iterations=100
+input=/home/admin/projects/video/bbb_sunflower_2160p_60fps_normal.mp4
+width=3840
+height=2160
+video_frame_index=60
+checksum=16378599
+processing_ms=10223.564
+processing_ms_per_frame=102.236
+configuration=optimized-1T
+threads=1
+iterations=100
+input=/home/admin/projects/video/bbb_sunflower_2160p_60fps_normal.mp4
+width=3840
+height=2160
+video_frame_index=60
+checksum=16378599
+processing_ms=10227.309
+processing_ms_per_frame=102.273
+configuration=optimized-1T
+threads=1
+iterations=100
+input=/home/admin/projects/video/bbb_sunflower_2160p_60fps_normal.mp4
+width=3840
+height=2160
+video_frame_index=60
+checksum=16378599
+processing_ms=10225.263
+processing_ms_per_frame=102.253
+configuration=optimized-1T
+threads=1
+iterations=100
+input=/home/admin/projects/video/bbb_sunflower_2160p_60fps_normal.mp4
+width=3840
+height=2160
+video_frame_index=60
+checksum=16378599
+processing_ms=10226.174
+processing_ms_per_frame=102.262
+configuration=optimized-1T
+threads=1
+iterations=100
+input=/home/admin/projects/video/bbb_sunflower_2160p_60fps_normal.mp4
+width=3840
+height=2160
+video_frame_index=60
+checksum=16378599
+processing_ms=10258.706
+processing_ms_per_frame=102.587
+
+ Performance counter stats for './sobel_optimized --input /home/admin/projects/video/bbb_sunflower_2160p_60fps_normal.mp4 --threads 1 --iterations 100' (5 runs):
+
+    17,490,074,140      task-clock:u                     #    1.345 CPUs utilized               ( +-  0.14% )
+                 0      context-switches:u               #    0.000 /sec                      
+                 0      cpu-migrations:u                 #    0.000 /sec                      
+            75,190      page-faults:u                    #    4.299 K/sec                       ( +-  0.00% )
+
+           13.0023 +- 0.0120 seconds time elapsed  ( +-  0.09% )
+

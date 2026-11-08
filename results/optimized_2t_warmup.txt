@@ -1,0 +1,10 @@
+configuration=optimized-2T
+threads=2
+iterations=100
+input=/home/admin/projects/video/bbb_sunflower_2160p_60fps_normal.mp4
+width=3840
+height=2160
+video_frame_index=60
+checksum=16378599
+processing_ms=5128.208
+processing_ms_per_frame=51.282

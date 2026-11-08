@@ -1,0 +1,12 @@
+
+ Performance counter stats for 'seq 1 1000000':
+
+        35,934,593      cycles:u                                                              
+        67,947,194      instructions:u                   #    1.89  insn per cycle            
+
+       0.031306373 seconds time elapsed
+
+       0.023467000 seconds user
+       0.003911000 seconds sys
+
+

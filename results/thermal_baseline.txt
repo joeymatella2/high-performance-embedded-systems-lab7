@@ -1,0 +1,2 @@
+baseline_temp=47.7
+baseline_throttled=0x0
