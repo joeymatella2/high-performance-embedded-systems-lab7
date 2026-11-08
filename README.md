@@ -19,14 +19,22 @@ make all
 
 Create `results/` first if running validation manually. `validate` reads the
 video frame selected by `Options.frame` in `input.h` (initially index 60),
-resizes it to 3840x2160, compares all five configurations pixel by pixel,
-and exits nonzero on any mismatch. An image path also works. Use
+or loads the supplied image file. It resizes the input to 3840x2160, compares
+all five configurations pixel by pixel, and exits nonzero on any mismatch. Use
 `--width W --height H` on both `validate` and every benchmark command only if
 you intentionally choose a different common size. The default is the 4K size
 used in earlier labs. To select another zero-based video frame for the entire
 experiment, change `Options.frame` in `input.h` and rebuild with
 `make clean && make all`. `collect.sh` does not pass a frame argument, so all
 configurations use the same compiled default.
+
+For the representative image-based experiment, use the included lossless
+`inputs/frame2000.png`. It was extracted from zero-based frame 2000 of the
+earlier-lab `bbb_sunflower_2160p_60fps_normal.mp4` with OpenCV 4.6.0 and is
+3840x2160. Its SHA-256 is
+`fdcc323bff5c3765f5ef89f493ce4943caac26b48fcef76fa97cf46b7e98ef4f`.
+When input is an image, `Options.frame` is ignored. The benchmark labels the
+input kind in its output.
 
 ## Benchmark commands
 
@@ -37,6 +45,11 @@ configurations use the same compiled default.
 ./sobel_optimized --input /path/to/video.mp4 --threads 4 --iterations 500
 ./sobel_optimized --input /path/to/video.mp4 --threads 8 --iterations 500
 ```
+
+For frame 2000, replace `/path/to/video.mp4` in every command with
+`inputs/frame2000.png`. The same image must be used for validation, timing
+calibration, and all counter sets. Do not combine its results with the earlier
+frame-60 video results.
 
 Replace `500` with one iteration count that makes **every** configuration run
 for at least two seconds. Keep that number fixed for all configurations. The
@@ -54,6 +67,12 @@ on each iteration, as in Lab 6; that overhead is part of the measured design.
 chmod +x collect.sh
 ./collect.sh /path/to/video.mp4 500
 ```
+
+For the frame-2000 image experiment, run
+`./collect.sh inputs/frame2000.png ITERATIONS`, where `ITERATIONS` has been
+recalibrated on the Pi so every configuration lasts at least two seconds.
+The script writes to `results/`; move or copy any earlier `results/` directory
+before starting a new collection.
 
 `collect.sh` refuses to run outside a Raspberry Pi. It saves system details,
 `perf list`, the access test, correctness, one warm-up per configuration, the

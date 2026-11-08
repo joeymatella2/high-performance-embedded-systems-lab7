@@ -48,10 +48,11 @@ Options parse_options(int argc, char** argv, bool benchmark)
     return options;
 }
 
-cv::Mat load_frame(const Options& options)
+cv::Mat load_frame(Options& options)
 {
     cv::setNumThreads(1);
     cv::Mat frame = cv::imread(options.input, cv::IMREAD_COLOR);
+    options.input_is_video = frame.empty();
     if (frame.empty()) {
         cv::VideoCapture capture(options.input);
         capture.set(cv::CAP_PROP_POS_FRAMES, options.frame);

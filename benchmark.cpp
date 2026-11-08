@@ -11,7 +11,7 @@
 int main(int argc, char** argv)
 {
     try {
-        const Options options = parse_options(argc, argv, true);
+        Options options = parse_options(argc, argv, true);
 #ifdef ORIGINAL_BUILD
         if (options.threads != 1)
             throw std::invalid_argument("sobel_original requires --threads 1");
@@ -41,9 +41,12 @@ int main(int argc, char** argv)
         std::cout << "threads=" << options.threads << '\n'
                   << "iterations=" << options.iterations << '\n'
                   << "input=" << options.input << '\n'
+                  << "input_kind=" << (options.input_is_video ? "video" : "image") << '\n'
                   << "width=" << options.width << '\n'
-                  << "height=" << options.height << '\n'
-                  << "video_frame_index=" << options.frame << '\n'
+                  << "height=" << options.height << '\n';
+        if (options.input_is_video)
+            std::cout << "video_frame_index=" << options.frame << '\n';
+        std::cout
                   << "checksum=" << checksum(output) << '\n'
                   << std::fixed << std::setprecision(3)
                   << "processing_ms=" << milliseconds << '\n'

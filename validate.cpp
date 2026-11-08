@@ -9,7 +9,7 @@
 int main(int argc, char** argv)
 {
     try {
-        const Options options = parse_options(argc, argv, false);
+        Options options = parse_options(argc, argv, false);
         const cv::Mat input = load_frame(options);
         cv::Mat gray(input.rows, input.cols, CV_8UC1);
         cv::Mat reference(input.rows - 2, input.cols - 2, CV_8UC1);

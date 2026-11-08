@@ -10,7 +10,8 @@ struct Options {
     int width = 3840;
     int height = 2160;
     int frame = 60;
+    bool input_is_video = false;
 };
 
 Options parse_options(int argc, char** argv, bool benchmark);
-cv::Mat load_frame(const Options& options);
+cv::Mat load_frame(Options& options);
